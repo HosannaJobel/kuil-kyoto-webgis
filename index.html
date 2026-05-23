@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peta Persebaran Kuil di Kota Kyoto, Jepang</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-left">
+      <span class="torii">&#9962;</span>
+      <div>
+        <h1>Peta Persebaran Kuil di Kota Kyoto, Jepang</h1>
+        <p class="subtitle">WebGIS Interaktif &middot; OpenStreetMap &amp; Leaflet.js</p>
+      </div>
+    </div>
+    <button id="toggleSidebar" class="btn-toggle" title="Tampilkan/Sembunyikan Panel">&#9776;</button>
+  </header>
+
+  <div class="app-body">
+    <aside id="sidebar" class="sidebar">
+      <section class="panel">
+        <h3>Statistik</h3>
+        <div class="stats">
+          <div class="stat-card stat-buddhist">
+            <span class="stat-num" id="countBuddhist">0</span>
+            <span class="stat-label">Kuil Buddha</span>
+          </div>
+          <div class="stat-card stat-shinto">
+            <span class="stat-num" id="countShinto">0</span>
+            <span class="stat-label">Kuil Shinto</span>
+          </div>
+          <div class="stat-card stat-total">
+            <span class="stat-num" id="countTotal">0</span>
+            <span class="stat-label">Total</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Cari Kuil</h3>
+        <input type="text" id="searchInput" placeholder="Contoh: Kiyomizu, Kinkaku, Fushimi..." />
+        <ul id="searchResults" class="search-results"></ul>
+      </section>
+
+      <section class="panel">
+        <h3>Filter Agama</h3>
+        <label class="check"><input type="checkbox" id="filterBuddhist" checked />
+          <span class="dot dot-buddhist"></span> Kuil Buddha</label>
+        <label class="check"><input type="checkbox" id="filterShinto" checked />
+          <span class="dot dot-shinto"></span> Kuil Shinto</label>
+      </section>
+
+      <section class="panel">
+        <h3>Filter Tingkat Kepentingan</h3>
+        <label class="check"><input type="checkbox" id="filterT1" checked />
+          Kuil Ikonik (besar)</label>
+        <label class="check"><input type="checkbox" id="filterT2" checked />
+          Kuil Major</label>
+        <label class="check"><input type="checkbox" id="filterT3" checked />
+          Kuil Notable</label>
+        <label class="check"><input type="checkbox" id="filterT4" checked />
+          Kuil Lainnya</label>
+      </section>
+
+      <section class="panel">
+        <h3>Basemap</h3>
+        <select id="basemapSelect">
+          <option value="positron">CartoDB Positron (terang)</option>
+          <option value="osm">OpenStreetMap</option>
+          <option value="satellite">Satelit (Esri)</option>
+          <option value="dark">Dark Mode</option>
+        </select>
+        <label class="check" style="margin-top: 8px"><input type="checkbox" id="toggleCluster" checked />
+          Aktifkan Clustering</label>
+      </section>
+
+      <section class="panel">
+        <h3>Legenda</h3>
+        <div class="legend-item"><span class="dot dot-buddhist-big"></span> Kuil Buddha (ikonik)</div>
+        <div class="legend-item"><span class="dot dot-shinto-big"></span> Kuil Shinto (ikonik)</div>
+        <div class="legend-item"><span class="dot dot-buddhist-sm"></span> Kuil Buddha lainnya</div>
+        <div class="legend-item"><span class="dot dot-shinto-sm"></span> Kuil Shinto lainnya</div>
+      </section>
+
+      <section class="panel credit">
+        <h3>Tentang</h3>
+        <p>Sumber data: <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a> (Overpass Turbo), 2026.</p>
+        <p>Dibuat oleh: Hosanna Jobel (1242002046)</p>
+        <p>Kapita Selekta Sistem Informasi &mdash; Universitas Bakrie</p>
+      </section>
+    </aside>
+
+    <main id="map"></main>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
