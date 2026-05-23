@@ -2,7 +2,7 @@
 
 WebGIS interaktif yang menampilkan persebaran 1.284 kuil (Buddha & Shinto) di Kota Kyoto, Jepang, berdasarkan data OpenStreetMap.
 
-**Live Demo:** https://NAMA-PROJEK-ANDA.vercel.app  *(ganti setelah deploy)*
+**Live Demo:** https://kuil-kyoto-webgis.vercel.app/*
 
 ---
 
